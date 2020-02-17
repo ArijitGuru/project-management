@@ -27,7 +27,7 @@ public class ApplicationController {
 	
 	
 		@GetMapping ("/test") // it is a short form of 
-		//RequestMapping (value = "/notes", method=RequestMethod.GET)
+		//RequestMapping (value = "/test", method=RequestMethod.GET)
 		public List <String> test(){
 			List<String> sampleData = new ArrayList<>();
 			sampleData.add("Arijit");
@@ -38,7 +38,7 @@ public class ApplicationController {
 		}
 		
 		@GetMapping ("/viewUser") // it is a short form of 
-		//RequestMapping (value = "/notes", method=RequestMethod.GET)
+		//RequestMapping (value = "/viewUser", method=RequestMethod.GET)
 		public List<User> viewUser(){
 			List<User> userList = userService.viewUser();
 			
@@ -46,7 +46,7 @@ public class ApplicationController {
 		}
 		
 		@PostMapping ("/addUser") // it is a short form of 
-		//RequestMapping (value = "/notes", method=RequestMethod.POST)
+		//RequestMapping (value = "/addUser", method=RequestMethod.POST)
 		public User addUser(@RequestBody User userParam){
 			User user = userService.addUser(userParam);
 			
