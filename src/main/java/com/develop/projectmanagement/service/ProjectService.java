@@ -9,5 +9,5 @@ public interface ProjectService {
 	public Project addProject(Project project);
 	public Project editProject(Project project);
 	public List<Project> viewProjects();
-	public void deleteProject(Integer projectId);
+	public void deleteProject(int projectId);
 }

@@ -93,5 +93,10 @@ public class ApplicationController {
 			return addedProject;
 		}
 		
+		@DeleteMapping("/deleteProject/{projectId}")
+		public void deleteProject(@PathVariable (name="projectId") int projectId) {
+			projectService.deleteProject(projectId);
+		}
+		
 		
 }

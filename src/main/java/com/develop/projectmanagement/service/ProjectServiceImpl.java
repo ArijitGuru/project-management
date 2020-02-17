@@ -35,8 +35,8 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public void deleteProject(Integer projectId) {
-		// TODO Auto-generated method stub
+	public void deleteProject(int projectId) {
+		projectRepository.deleteById(Integer.valueOf(projectId));
 		
 	}
 
