@@ -2,8 +2,15 @@ package com.develop.projectmanagement.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "task")
 public class Task {
 	
+	@Id
 	private int taskId;
 	private int parentId;
 	private int projectId;
@@ -12,6 +19,8 @@ public class Task {
 	private Date endDate;
 	private int priority;
 	private String status;
+	
+	
 	/**
 	 * @return the taskId
 	 */

@@ -13,9 +13,9 @@ import javax.persistence.Table;
 public class Project {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int projectId;
-	private String Project;
+	private String project;
 	private Date startDate;
 	private Date endDate;
 	private int priority;
@@ -38,13 +38,13 @@ public class Project {
 	 * @return the project
 	 */
 	public String getProject() {
-		return Project;
+		return project;
 	}
 	/**
 	 * @param project the project to set
 	 */
 	public void setProject(String project) {
-		Project = project;
+		this.project = project;
 	}
 	/**
 	 * @return the startDate

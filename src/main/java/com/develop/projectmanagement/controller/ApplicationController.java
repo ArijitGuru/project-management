@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.develop.projectmanagement.model.Project;
 import com.develop.projectmanagement.model.User;
+import com.develop.projectmanagement.service.ProjectService;
 import com.develop.projectmanagement.service.UserService;
 
 
@@ -24,6 +26,8 @@ public class ApplicationController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	ProjectService projectService;
 	
 	
 		@GetMapping ("/test") // it is a short form of 
@@ -69,4 +73,25 @@ public class ApplicationController {
 			 
 		}
 
+		//Project add/edit/delete
+		
+		@PostMapping("/addProject")
+		public Project addProject(@RequestBody Project project) {
+			Project addedProject = projectService.addProject(project);
+			return addedProject;
+		}
+		
+		@GetMapping("/viewProject")
+		public List<Project> viewProject() {
+			List<Project> projectList = projectService.viewProjects();
+			return projectList;
+		}
+		
+		@PutMapping("/editProject")
+		public Project editProject(@RequestBody Project project) {
+			Project addedProject = projectService.editProject(project);
+			return addedProject;
+		}
+		
+		
 }
