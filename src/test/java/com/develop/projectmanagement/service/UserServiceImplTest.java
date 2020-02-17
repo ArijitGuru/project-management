@@ -5,6 +5,9 @@ package com.develop.projectmanagement.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -22,13 +25,15 @@ class UserServiceImplTest {
     void setMockOutput() {
 		User user = new User();
 		user.setFirstName("Binayak");;
-        when(userService.viewUser()).thenReturn(user);
+		List<User> userList = new ArrayList<User>();
+		userList.add(user);
+        when(userService.viewUser()).thenReturn(userList);
     }
 	
 	
 	@Test
 	void viewUsertest() {
-		assertEquals("Binayak", userService.viewUser().getFirstName());
+		assertEquals("Binayak", userService.viewUser().get(0).getFirstName());
 	}
 
 }
