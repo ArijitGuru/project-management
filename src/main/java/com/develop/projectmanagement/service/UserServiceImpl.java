@@ -2,6 +2,7 @@ package com.develop.projectmanagement.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,29 +18,29 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public User addUser(User user) {
-		// TODO Call DAO
 		User addedUser = userRepository.save(user);
 		return addedUser;
 	}
 
 	@Override
-	public String editUser(User user) {
-		// TODO Call DAO
-		return "User updated";
+	public User editUser(User user) {
+		User savedUser = userRepository.save(user);
+		return savedUser;
 	}
 
 	@Override
 	public List<User> viewUser() {
-		// TODO Call DAO
 		List<User> userList = new ArrayList<User>();
 		userRepository.findAll().forEach(userList::add);
 		return userList;
 	}
 
 	@Override
-	public boolean deleteUser(User user) {
-		// TODO Call DAO
-		return true;
+	public void deleteUser(int userId) {
+		Integer id = Integer.valueOf(userId);
+		//Optional<User> user = userRepository.findById(id);
+		userRepository.deleteById(id);
+		
 	}
 
 }

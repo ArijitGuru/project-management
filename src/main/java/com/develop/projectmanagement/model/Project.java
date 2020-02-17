@@ -2,24 +2,37 @@ package com.develop.projectmanagement.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="project")
 public class Project {
 
-	private int userId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int projectId;
 	private String Project;
 	private Date startDate;
 	private Date endDate;
 	private int priority;
+
+
+	
 	/**
-	 * @return the userId
+	 * @return the projectId
 	 */
-	public int getUserId() {
-		return userId;
+	public int getProjectId() {
+		return projectId;
 	}
 	/**
-	 * @param userId the userId to set
+	 * @param projectId the projectId to set
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setProjectId(int projectId) {
+		this.projectId = projectId;
 	}
 	/**
 	 * @return the project

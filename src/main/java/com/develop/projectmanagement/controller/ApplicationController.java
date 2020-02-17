@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,6 +51,22 @@ public class ApplicationController {
 			User user = userService.addUser(userParam);
 			
 			return user; 
+		}
+		
+		@PutMapping ("/editUser") // it is a short form of 
+		//RequestMapping (value = "/editUser", method=RequestMethod.PUT)
+		public User editUser(@RequestBody User userParam){
+			User user = userService.editUser(userParam);
+			
+			return user; 
+		}
+		
+		@DeleteMapping ("/deleteUser/{id}") // it is a short form of 
+		//RequestMapping (value = "/deleteUser/{id}", method=RequestMethod.Delete)
+		public void deleteUser(@PathVariable (value="id") int id){
+			userService.deleteUser(id);
+			
+			 
 		}
 
 }
