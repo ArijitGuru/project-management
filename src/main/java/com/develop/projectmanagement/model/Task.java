@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "task")
@@ -15,7 +17,11 @@ public class Task {
 	private int parentId;
 	private int projectId;
 	private String task;
+	
+	@Temporal(TemporalType.DATE)
 	private Date startDate;
+	
+	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	private int priority;
 	private String status;

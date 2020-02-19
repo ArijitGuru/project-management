@@ -81,6 +81,11 @@ public class ApplicationController {
 			return addedProject;
 		}
 		
+		@PostMapping("/addProjectWithDefaultDate")
+		public Project addProjectWithDefaultDate(@RequestBody Project project) {
+			return projectService.addProjectWithDates(project);
+		}
+		
 		@GetMapping("/viewProject")
 		public List<Project> viewProject() {
 			List<Project> projectList = projectService.viewProjects();

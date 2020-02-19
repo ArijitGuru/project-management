@@ -7,16 +7,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="project")
 public class Project {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int projectId;
 	private String project;
+	
+	@Temporal(TemporalType.DATE)
 	private Date startDate;
+	
+	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	private int priority;
 

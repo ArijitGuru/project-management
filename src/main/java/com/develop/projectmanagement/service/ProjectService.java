@@ -10,4 +10,5 @@ public interface ProjectService {
 	public Project editProject(Project project);
 	public List<Project> viewProjects();
 	public void deleteProject(int projectId);
+	public Project addProjectWithDates(Project project);
 }
