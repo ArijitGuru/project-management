@@ -18,19 +18,16 @@ public class TaskServiceImpl implements TaskService{
 
 	@Override
 	public Task addTask(Task task) {
-		// TODO Auto-generated method stub
 		return taskRepository.save(task);
 	}
 
 	@Override
 	public Task editTask(Task task) {
-		// TODO Auto-generated method stub
 		return taskRepository.save(task);
 	}
 
 	@Override
 	public List<Task> viewTasks() {
-		// TODO Auto-generated method stub
 		List<Task> taskList = new ArrayList<Task>();
 		taskRepository.findAll().forEach(taskList::add);
 		return taskList;
@@ -38,7 +35,6 @@ public class TaskServiceImpl implements TaskService{
 
 	@Override
 	public void deleteTask(int taskId) {
-		// TODO Auto-generated method stub
 		taskRepository.deleteById(taskId);
 		
 	}
