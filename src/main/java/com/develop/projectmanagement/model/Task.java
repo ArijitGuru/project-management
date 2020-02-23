@@ -3,6 +3,8 @@ package com.develop.projectmanagement.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -13,6 +15,7 @@ import javax.persistence.TemporalType;
 public class Task {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE) 
 	private int taskId;
 	private int parentId;
 	private int projectId;

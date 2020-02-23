@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.develop.projectmanagement.model.Project;
+import com.develop.projectmanagement.model.Task;
 import com.develop.projectmanagement.model.User;
 import com.develop.projectmanagement.service.ProjectService;
+import com.develop.projectmanagement.service.TaskService;
 import com.develop.projectmanagement.service.UserService;
 
 
@@ -29,6 +31,9 @@ public class ApplicationController {
 	@Autowired
 	ProjectService projectService;
 	
+	@Autowired
+	TaskService taskService;
+	
 	
 		@GetMapping ("/test") // it is a short form of 
 		//RequestMapping (value = "/test", method=RequestMethod.GET)
@@ -40,6 +45,8 @@ public class ApplicationController {
 			
 			return sampleData; //
 		}
+		
+		//User Add/edit/view/delete
 		
 		@GetMapping ("/viewUser") // it is a short form of 
 		//RequestMapping (value = "/viewUser", method=RequestMethod.GET)
@@ -101,6 +108,32 @@ public class ApplicationController {
 		@DeleteMapping("/deleteProject/{projectId}")
 		public void deleteProject(@PathVariable (name="projectId") int projectId) {
 			projectService.deleteProject(projectId);
+		}
+		
+		
+		//Task Add/edit/delete
+		
+		@PostMapping("/addTask")
+		public Task addTask(@RequestBody Task task) {
+			Task addedTask = taskService.addTask(task);
+			return addedTask;
+		}
+		
+		@GetMapping("/viewTask")
+		public List<Task> viewTask() {
+			List<Task> taskList = taskService.viewTasks();
+			return taskList;
+		}
+		
+		@PutMapping("/editTask")
+		public Task editTask(@RequestBody Task task) {
+			Task addedTask = taskService.editTask(task);
+			return addedTask;
+		}
+		
+		@DeleteMapping("/deleteTask/{taskId}")
+		public void deleteTask(@PathVariable (name="taskId") int taskId) {
+			taskService.deleteTask(taskId);
 		}
 		
 		
