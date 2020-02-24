@@ -18,8 +18,9 @@ import com.develop.projectmanagement.model.User;
 @SpringBootTest
 class UserServiceImplTest {
 
-	@Mock
-	private UserService userService;
+	/*
+	 * @Mock private UserService userService;
+	 */
 	
 	@BeforeEach
     void setMockOutput() {
