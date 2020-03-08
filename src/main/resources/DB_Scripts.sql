@@ -1,2 +1,3 @@
 --CREATE SCHEMA IF NOT EXISTS projectmanagement;
 --USE projectmanagement;
+--CREATE UNIQUE INDEX unique_user ON user (first_name, last_name, employee_id);

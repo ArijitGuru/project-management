@@ -32,8 +32,24 @@ public class UserController {
 	@PostMapping("/addUser") // it is a short form of
 	// RequestMapping (value = "/addUser", method=RequestMethod.POST)
 	public User addUser(@RequestBody User userParam) {
-		User user = userService.addUser(userParam);
-
+		boolean add = true;
+		User user = null;
+		if(null != userParam) {
+			if ("".equalsIgnoreCase(userParam.getFirstName())) {
+				add = false;
+			}
+			if ("".equalsIgnoreCase(userParam.getLastName())) {
+				add = false;
+			}
+			if (0 >= userParam.getEmployeeId()) {
+				add = false;
+			}
+		}
+		
+		if (add) {
+			user = userService.addUser(userParam);
+		}
+		
 		return user;
 	}
 
