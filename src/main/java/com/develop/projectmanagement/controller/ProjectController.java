@@ -24,8 +24,9 @@ public class ProjectController {
 
 	@PostMapping("/addProject")
 	public Project addProject(@RequestBody Project project) {
+		System.out.println(project.toString());
 		Project addedProject = projectService.addProject(project);
-		return addedProject;
+		return viewProject().get(0);
 	}
 
 	@PostMapping("/addProjectWithDefaultDate")
