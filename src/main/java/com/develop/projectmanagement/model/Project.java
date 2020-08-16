@@ -88,6 +88,13 @@ public class Project {
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
+	@Override
+	public String toString() {
+		return "Project [projectId=" + projectId + ", project=" + project + ", startDate=" + startDate + ", endDate="
+				+ endDate + ", priority=" + priority + "]";
+	}
+	
+	
 	
 	
 }
